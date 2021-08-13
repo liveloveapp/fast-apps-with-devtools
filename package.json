@@ -1,0 +1,17 @@
+{
+  "name": "blazin-fast-apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier **/*.{html,css,ts} --write",
+    "start": "snowpack dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.3.2",
+    "snowpack": "^3.8.6",
+    "typescript": "^4.3.5"
+  }
+}

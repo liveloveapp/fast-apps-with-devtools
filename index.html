@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Building Blazin Fast Apps</title>
+
+    <meta name="description" content="Building Blazin Fast Apps Challenges" />
+    <meta name="author" content="LiveLoveApp, LLC" />
+  </head>
+  <body>
+    <h1>Building Blazin Fast Apps</h1>
+    <h2>Using the Chrome Devtools</h2>
+
+    <nav>
+      <a href="/challenges/01-lighthouse/index.html"> 01 Lighthouse </a>
+      <a href="/challenges/02-rendering/index.html"> 02 Rendering </a>
+
+      <a href="/challenges/03-performance-monitor/index.html">
+        03 Performance Monitor
+      </a>
+    </nav>
+
+    <script type="module" src="/common.js"></script>
+    <style>
+      h1 {
+        font-size: 24px;
+        margin: 24px 24px 8px;
+        font-weight: 700;
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: 100;
+        margin: 0 24px 24px;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 8px 0;
+        padding: 16px 24px;
+        width: 240px;
+        background-color: var(--color-yellow);
+        color: var(--color-yellow-contrast);
+        text-decoration: none;
+        transition: padding-left 180ms;
+      }
+
+      nav a:hover {
+        padding-left: 32px;
+      }
+    </style>
+  </body>
+</html>

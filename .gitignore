@@ -116,3 +116,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Lighthouse report
+lh-report.html
+
+# Snowpack build
+build

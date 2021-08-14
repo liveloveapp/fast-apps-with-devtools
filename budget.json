@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/*",
+    "timings": [],
+    "resourceSizes": [
+      {
+        "resourceType": "script",
+        "budget": 500
+      },
+      {
+        "resourceType": "total",
+        "budget": 1000
+      }
+    ],
+    "resourceCounts": [
+      {
+        "resourceType": "third-party",
+        "budget": 12
+      }
+    ]
+  }
+]

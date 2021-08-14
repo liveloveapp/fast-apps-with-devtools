@@ -4,14 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "snowpack build --clean",
     "format": "prettier **/*.{html,css,ts} --write",
+    "lh": "lighthouse http://localhost:8080/challenges/01-lighthouse/index.html --quiet --chrome-flags=\"--headless\" --budget-path=./budget.json --output-path=./lh-report.html --view",
+    "serve": "http-server ./build -p 8080",
     "start": "snowpack dev"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@ag-grid-community/all-modules": "^25.3.0",
+    "@snowpack/plugin-postcss": "^1.4.3",
+    "@snowpack/plugin-webpack": "^3.0.0",
+    "concurrently": "^6.2.1",
+    "http-server": "^13.0.0",
+    "lighthouse": "^8.3.0",
+    "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "snowpack": "^3.8.6",
+    "tailwindcss": "^2.2.7",
     "typescript": "^4.3.5"
   }
 }

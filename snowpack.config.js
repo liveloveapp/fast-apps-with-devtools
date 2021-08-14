@@ -6,14 +6,12 @@ module.exports = {
   mount: {
     /* ... */
   },
-  plugins: [
-    /* ... */
-  ],
+  plugins: ['@snowpack/plugin-postcss', '@snowpack/plugin-webpack'],
   packageOptions: {
     /* ... */
   },
   devOptions: {
-    /* ... */
+    tailwindConfig: './tailwind.config.js',
   },
   buildOptions: {
     /* ... */

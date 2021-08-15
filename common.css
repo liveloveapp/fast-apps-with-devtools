@@ -149,6 +149,24 @@ body {
   color: var(--color-background-contrast);
 }
 
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 72px;
+  margin: 48px 48px 24px;
+}
+
+h2 {
+  font-size: 60px;
+  margin: 36px 36px 18px;
+}
+
+h3 {
+  font-size: 42px;
+  margin: 24px 24px 12px;
+}
 .challenge-header {
   color: var(--color-blue-contrast);
   background-color: var(--color-blue);
@@ -180,7 +198,7 @@ body {
 
 .challenge-header h1 {
   font-size: 20px;
-  margin-left: 24px;
+  margin: 0 0 0 24px;
   padding: 8px 24px;
   font-weight: 700;
   border-left: 1px solid rgba(255, 255, 255, 0.12);

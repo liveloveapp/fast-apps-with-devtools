@@ -1,1 +1,1 @@
-console.log("04 Instability API");
+console.log('04 Instability API');

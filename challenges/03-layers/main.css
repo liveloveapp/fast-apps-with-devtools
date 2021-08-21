@@ -1,3 +1,13 @@
-.animate {
-  will-change: transform;
+p {
+  margin: 20px 0;
+}
+
+.italic {
+  transform: rotateY(30deg) rotateX(-30deg)
+}
+
+.video {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

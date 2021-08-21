@@ -1,1 +1,2 @@
-console.log('04 Instability API');
+import { Warning } from '../../components';
+new Warning();

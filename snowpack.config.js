@@ -14,6 +14,6 @@ module.exports = {
     tailwindConfig: './tailwind.config.js',
   },
   buildOptions: {
-    /* ... */
+    sourcemap: true,
   },
 };

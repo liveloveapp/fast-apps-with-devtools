@@ -80,92 +80,91 @@
 
     <h1>Travel Itinerary</h1>
 
-    <aside
-      id="content"
-      class="
-        m-4
-        grid grid-cols-1
-        md:grid-cols-2
-        lg:grid-cols-3
-        md:gap-x-10
-        xl-grid-cols-4
-        gap-y-10 gap-x-6
-      "
-    >
-      <div
-        class="
-          w-100
-          mx-2
-          bg-white
-          rounded-lg
-          overflow-hidden
-          transform-gpu
-          transition
-          hover:scale-105
-        "
-      >
-        <img
-          src="https://source.unsplash.com/58uZCE8zrdk/800x450"
-          alt="Photograph of the alps covered in snow with a field and houses"
-        />
-        <div class="p-4 bg-gray-100 flex justify-between align-center">
-          <span class="material-icons text-black"> place </span>
-          <p class="uppercase tracking-wide text-sm font-bold text-gray-500">
-            Kern, Switzerland
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="
-          w-100
-          mx-2
-          bg-white
-          rounded-lg
-          overflow-hidden
-          transform-gpu
-          transition
-          hover:scale-105
-        "
-      >
-        <img
-          src="https://source.unsplash.com/5GtS0qbcU0s/800x450"
-          alt="Mountain meadow with purple spring flowers and a lake in the distance"
-        />
-        <div class="p-4 bg-gray-100 flex justify-between align-center">
-          <span class="material-icons text-black"> place </span>
-          <p class="uppercase tracking-wide text-sm font-bold text-gray-500">
-            Belluno, Italy
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="
-          w-100
-          mx-2
-          bg-white
-          rounded-lg
-          overflow-hidden
-          transform-gpu
-          transition
-          hover:scale-105
-        "
-      >
-        <img
-          src="https://source.unsplash.com/G0OnHccvwcA/800x450"
-          alt="Wooden barn in a field of grass on the edge of a hill with mountains in the distance"
-        />
-        <div class="p-4 bg-gray-100 flex justify-between align-center">
-          <span class="material-icons text-black"> place </span>
-          <p class="uppercase tracking-wide text-sm font-bold text-gray-500">
-            Piz La Ila, Italy
-          </p>
-        </div>
-      </div>
-    </aside>
-
     <main class="m-4">
+      <aside
+        id="content"
+        class="
+          m-4
+          grid grid-cols-1
+          md:grid-cols-2
+          lg:grid-cols-3
+          md:gap-x-10
+          xl-grid-cols-4
+          gap-y-10 gap-x-6
+        "
+      >
+        <div
+          class="
+            w-100
+            mx-2
+            bg-white
+            rounded-lg
+            overflow-hidden
+            transform-gpu
+            transition
+            hover:scale-105
+          "
+        >
+          <img
+            src="https://source.unsplash.com/58uZCE8zrdk/800x450"
+            alt="Photograph of the alps covered in snow with a field and houses"
+          />
+          <div class="p-4 bg-gray-100 flex justify-between align-center">
+            <span class="material-icons text-black"> place </span>
+            <p class="uppercase tracking-wide text-sm font-bold text-gray-500">
+              Kern, Switzerland
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="
+            w-100
+            mx-2
+            bg-white
+            rounded-lg
+            overflow-hidden
+            transform-gpu
+            transition
+            hover:scale-105
+          "
+        >
+          <img
+            src="https://source.unsplash.com/5GtS0qbcU0s/800x450"
+            alt="Mountain meadow with purple spring flowers and a lake in the distance"
+          />
+          <div class="p-4 bg-gray-100 flex justify-between align-center">
+            <span class="material-icons text-black"> place </span>
+            <p class="uppercase tracking-wide text-sm font-bold text-gray-500">
+              Belluno, Italy
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="
+            w-100
+            mx-2
+            bg-white
+            rounded-lg
+            overflow-hidden
+            transform-gpu
+            transition
+            hover:scale-105
+          "
+        >
+          <img
+            src="https://source.unsplash.com/G0OnHccvwcA/800x450"
+            alt="Wooden barn in a field of grass on the edge of a hill with mountains in the distance"
+          />
+          <div class="p-4 bg-gray-100 flex justify-between align-center">
+            <span class="material-icons text-black"> place </span>
+            <p class="uppercase tracking-wide text-sm font-bold text-gray-500">
+              Piz La Ila, Italy
+            </p>
+          </div>
+        </div>
+      </aside>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Amet mattis
@@ -291,6 +290,52 @@
         </div>
       </div>
     </div>
+
+    <template id="location-card">
+      <style>
+        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+        :host {
+          width: 100%;
+          margin: 10px;
+          background: #fff;
+          border-radius: 5px;
+          transition: transform 200ms ease-in-out;
+          overflow: hidden;
+        }
+
+        :host:hover {
+          transform: scale(1.1);
+        }
+
+        :host > .bg {
+          height: 200px;
+          width: 100%;
+          background-position: center;
+          background-size: cover;
+        }
+
+        :host > footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: var(--theme-grey-100);
+          color: #000;
+          padding: 10px;
+        }
+
+        :host > footer > slot[name='name'] {
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: 700;
+        }
+      </style>
+      <div class="bg"></div>
+      <footer>
+        <span class="material-icons"> place </span>
+        <slot name="name"></slot>
+      </footer>
+    </template>
 
     <script type="module" src="/common.js"></script>
     <script type="module" src="/challenges/02-rendering/main.js"></script>

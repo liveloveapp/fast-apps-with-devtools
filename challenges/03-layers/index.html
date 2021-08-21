@@ -18,6 +18,149 @@
       <h1>03 Layers</h1>
     </header>
 
+    <nav class="m-4 p-4 grid gap-4">
+      <button
+        id="toggle"
+        class="
+          uppercase
+          text-white text-2xl
+          font-bold
+          py-4
+          px-8
+          rounded
+          bg-screamin-green
+        "
+      >
+        <span id="refresh" class="material-icons"> refresh </span>
+        Let's Go!
+      </button>
+      <button
+        id="open"
+        class="
+          uppercase
+          text-white text-2xl
+          font-bold
+          py-4
+          px-8
+          rounded
+          bg-screamin-green
+        "
+      >
+        Open Dialog
+      </button>
+    </nav>
+
+    <main>
+      <h1>Demo</h1>
+      <app-dialog>
+        <span slot="heading">This is a dialog</span>
+        <div slot="content">
+          <p>Open the Layers panel in DevTools.</p>
+          <p>
+            For Windows users, press ctrl + shift + p. For macOS users press cmd
+            + shift + p. Then, type "show layers" and choose the Show Layers
+            Panel.
+          </p>
+          <div class="video">
+            <video width="320" height="240" controls>
+              <source src="./video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </app-dialog>
+    </main>
+
+    <template id="dialog">
+      <style>
+        :host {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          overflow-y: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          visibility: hidden;
+        }
+
+        :host::after {
+          content: '';
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.4);
+          z-index: 1;
+        }
+
+        :host > .dialog {
+          background: #fff;
+          min-width: 300px;
+          max-width: 400px;
+          border-radius: 10px;
+          box-shadow: rgba(255, 255, 255, 0.6) 0px 1px 0px inset,
+            rgba(0, 0, 0, 0.56) 0px 22px 70px 4px,
+            rgba(0, 0, 0, 0) 0px 0px 0px 1px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: stretch;
+          z-index: 2;
+          overflow: hidden;
+        }
+
+        :host > .dialog > header {
+          background-color: var(--theme-grey-100);
+          color: #000;
+          padding: 0 20px;
+        }
+
+        :host > .dialog > .content {
+          background: #fff;
+          color: #000;
+          padding: 10px 20px;
+          /*max-height: 300px;*/
+          /*overflow-y: auto;*/
+        }
+
+        :host > .dialog > footer {
+          background-color: var(--theme-black-300);
+          color: #fff;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        :host > .dialog > footer button {
+          outline: none;
+          border: 0;
+          border-radius: 10px;
+          cursor: pointer;
+          background-color: var(--color-green);
+          color: var(--color-green-contrast);
+          font-size: 24px;
+          padding: 10px 20px;
+        }
+      </style>
+      <div class="overlay"></div>
+      <div class="dialog">
+        <header>
+          <h2>
+            <slot name="heading"></slot>
+          </h2>
+        </header>
+        <div class="content">
+          <slot name="content"></slot>
+        </div>
+        <footer>
+          <button id="close" class="btn">Ok</button>
+        </footer>
+      </div>
+    </template>
+
     <script type="module" src="/common.js"></script>
     <script type="module" src="/challenges/03-layers/main.js"></script>
   </body>

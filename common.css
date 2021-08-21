@@ -132,15 +132,27 @@ table {
 
 :root {
   --color-background: #131b23;
-  --color-background-contrast: #ffffff;
+  --color-background-contrast: #fff;
   --color-blue: #34a7ff;
-  --color-blue-contrast: #ffffff;
+  --color-blue-contrast: #fff;
   --color-red: #ff5964;
-  --color-red-contrast: #ffffff;
+  --color-red-contrast: #fff;
   --color-green: #6cf178;
-  --color-green-contrast: #000000;
+  --color-green-contrast: #fff;
   --color-yellow: #ffe74c;
-  --color-yellow-contrast: #000000;
+  --color-yellow-contrast: #000;
+
+  --theme-black-100: #596173;
+  --theme-black-200: #454e61;
+  --theme-black-300: #3c4455;
+  --theme-black-400: #323a4a;
+  --theme-black-500: #1c2230;
+
+  --theme-grey-100: #f7f8fc;
+  --theme-grey-200: #f0f2f9;
+  --theme-grey-300: #e1e5f1;
+  --theme-grey-400: #d4d8e4;
+  --theme-grey-500: #848b9f;
 }
 
 body {

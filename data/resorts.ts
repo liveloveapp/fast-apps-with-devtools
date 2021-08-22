@@ -1,3 +1,5 @@
+import { Resort } from './resort.interface';
+
 export const resorts = [
   {
     resort_name: '49(degrees) North, WA',
@@ -6551,4 +6553,4 @@ export const resorts = [
     lat: 41.52,
     lon: -71.57,
   },
-];
+] as Resort[];

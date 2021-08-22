@@ -2,9 +2,6 @@ export class Dialog extends HTMLElement {
   /** The button to close the dialog. */
   private closeButton: HTMLButtonElement | null = null;
 
-  /** Execution scope bound callback function. */
-  private close = this.onClose.bind(this);
-
   constructor() {
     super();
 
@@ -20,17 +17,18 @@ export class Dialog extends HTMLElement {
     if (this.shadowRoot) {
       this.closeButton = this.shadowRoot.querySelector('#close');
     }
+    this.onClose = this.onClose.bind(this);
   }
 
   connectedCallback(): void {
     if (this.closeButton) {
-      this.closeButton.addEventListener('click', this.close);
+      this.closeButton.addEventListener('click', this.onClose);
     }
   }
 
   disconnectedCallback(): void {
     if (this.closeButton) {
-      this.closeButton.removeEventListener('click', this.close);
+      this.closeButton.removeEventListener('click', this.onClose);
     }
   }
 

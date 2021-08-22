@@ -11,3 +11,7 @@ p {
   display: flex;
   justify-content: center;
 }
+
+#refresh {
+  will-change: transform;
+}

@@ -5,7 +5,7 @@ import {
   ModuleRegistry,
 } from '@ag-grid-community/all-modules';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
-import { resorts } from './resorts';
+import { resorts } from '../../data';
 
 import './main.css';
 import '@ag-grid-community/core/dist/styles/ag-grid.css';

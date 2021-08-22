@@ -66,7 +66,7 @@
         id="start"
         class="
           uppercase
-          text-white text-2xl
+          text-black text-2xl
           font-bold
           py-4
           px-8
@@ -293,8 +293,6 @@
 
     <template id="location-card">
       <style>
-        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
         :host {
           width: 100%;
           margin: 10px;
@@ -319,9 +317,13 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background-color: var(--theme-grey-100);
+          background-color: var(--color-gray-100);
           color: #000;
           padding: 10px;
+        }
+
+        :host > footer svg {
+          height: 24px;
         }
 
         :host > footer > slot[name='name'] {
@@ -332,7 +334,26 @@
       </style>
       <div class="bg"></div>
       <footer>
-        <span class="material-icons"> place </span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
         <slot name="name"></slot>
       </footer>
     </template>

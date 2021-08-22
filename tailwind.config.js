@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
@@ -10,9 +10,10 @@ module.exports = {
       'fiery-rose': '#ff5964',
       'minion-yellow': '#ffe74c',
       'screamin-green': '#6cf178',
-    }
+    },
   },
   fontFamily: {
-    sans: ['Work Sans', 'sans-serif']
-  }
+    sans: ['Work Sans', 'sans-serif'],
+  },
+  plugins: [require('@tailwindcss/forms')],
 };

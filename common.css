@@ -142,17 +142,17 @@ table {
   --color-yellow: #ffe74c;
   --color-yellow-contrast: #000;
 
-  --theme-black-100: #596173;
-  --theme-black-200: #454e61;
-  --theme-black-300: #3c4455;
-  --theme-black-400: #323a4a;
-  --theme-black-500: #1c2230;
+  --color-black-100: #596173;
+  --color-black-200: #454e61;
+  --color-black-300: #3c4455;
+  --color-black-400: #323a4a;
+  --color-black-500: #1c2230;
 
-  --theme-grey-100: #f7f8fc;
-  --theme-grey-200: #f0f2f9;
-  --theme-grey-300: #e1e5f1;
-  --theme-grey-400: #d4d8e4;
-  --theme-grey-500: #848b9f;
+  --color-gray-100: #f7f8fc;
+  --color-gray-200: #f0f2f9;
+  --color-gray-300: #e1e5f1;
+  --color-gray-400: #d4d8e4;
+  --color-gray-500: #848b9f;
 }
 
 body {

@@ -112,18 +112,6 @@ export class ResortCard extends HTMLElement {
     }
   }
 
-  private animatePercent(el: HTMLDivElement, percent: number, prev = 0): void {
-    if (prev >= percent) {
-      return;
-    }
-    prev++;
-    el.style.width = `${prev.toString()}%`;
-    requestAnimationFrame(() => {
-      el.style.width = `${prev.toString()}%`;
-      this.animatePercent(el, percent, prev);
-    });
-  }
-
   private setAcresPercent(color: string, percent: number): void {
     if (!this.shadowRoot || !percent) {
       return;
@@ -134,8 +122,9 @@ export class ResortCard extends HTMLElement {
     if (!percentEl) {
       return;
     }
-    this.animatePercent(percentEl, percent * 100);
-    // percentEl.style.width = `${(percent * 100).toString()}%`;
+    requestAnimationFrame(() => {
+      percentEl.style.width = `${(percent * 100).toString()}%`;
+    });
   }
 
   private setSlotInnerText(name: string): void {

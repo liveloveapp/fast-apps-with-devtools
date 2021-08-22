@@ -53,6 +53,12 @@ export class ResortCard extends HTMLElement {
     if (this.favoriteButton) {
       this.favoriteButton.addEventListener('click', this.onFavorite);
     }
+    ['green', 'blue', 'black'].forEach((color) => {
+      const qualifiedName = `${color}-percent`;
+      if (this.getAttribute(qualifiedName) !== null) {
+        this.setAcresPercent(color, +!this.getAttribute(qualifiedName));
+      }
+    });
   }
 
   attributeChangedCallback(
@@ -111,10 +117,7 @@ export class ResortCard extends HTMLElement {
       return;
     }
     prev++;
-    // el.style.width = `${prev.toString()}%`;
-    // setTimeout(() => {
-    //   this.animatePercent(el, percent, prev);
-    // }, 1);
+    el.style.width = `${prev.toString()}%`;
     requestAnimationFrame(() => {
       el.style.width = `${prev.toString()}%`;
       this.animatePercent(el, percent, prev);
@@ -122,7 +125,7 @@ export class ResortCard extends HTMLElement {
   }
 
   private setAcresPercent(color: string, percent: number): void {
-    if (!this.shadowRoot) {
+    if (!this.shadowRoot || !percent) {
       return;
     }
     const percentEl = this.shadowRoot.querySelector(
@@ -131,10 +134,8 @@ export class ResortCard extends HTMLElement {
     if (!percentEl) {
       return;
     }
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      this.animatePercent(percentEl, percent * 100);
-    });
-    intersectionObserver.observe(percentEl);
+    this.animatePercent(percentEl, percent * 100);
+    // percentEl.style.width = `${(percent * 100).toString()}%`;
   }
 
   private setSlotInnerText(name: string): void {

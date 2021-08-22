@@ -18,6 +18,281 @@
       <h1>06 Performance</h1>
     </header>
 
+    <nav class="p-4">
+      <div class="flex flex-row w-full">
+        <div class="mt-1 relative rounded-md shadow-sm flex-auto">
+          <div
+            class="
+              absolute
+              inset-y-0
+              left-0
+              pl-3
+              flex
+              items-center
+              pointer-events-none
+            "
+          >
+            <span class="text-gray-800 sm:text-sm material-icons">
+              search
+            </span>
+          </div>
+          <input
+            type="text"
+            id="search"
+            class="
+              focus:ring-indigo-500 focus:border-indigo-500
+              block
+              w-full
+              p-4
+              pl-8
+              sm:text-lg
+              text-black
+              border-gray-300
+              rounded-full
+            "
+          />
+        </div>
+        <button
+          id="clear"
+          class="
+            uppercase
+            text-white text-lg
+            font-bold
+            py-4
+            px-8
+            rounded-full
+            ml-8
+            border-2 border-gray-100
+          "
+        >
+          Clear
+        </button>
+        <button
+          id="all"
+          class="
+            uppercase
+            text-white text-lg
+            font-bold
+            py-4
+            px-8
+            rounded-full
+            ml-8
+            border-2 border-gray-100
+          "
+        >
+          All
+        </button>
+      </div>
+    </nav>
+
+    <main id="main" class="container mx-auto px-4"></main>
+
+    <template id="resort-card">
+      <style>
+        :host {
+          background: #fff;
+          border-radius: 10px;
+          box-shadow: rgba(255, 255, 255, 0.6) 0px 1px 0px inset,
+            rgba(0, 0, 0, 0.56) 0px 22px 70px 4px,
+            rgba(0, 0, 0, 0) 0px 0px 0px 1px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: stretch;
+          overflow: hidden;
+        }
+
+        :host > header {
+          background-color: var(--color-gray-100);
+          color: #000;
+          padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        :host > header > .favorite {
+          outline: none;
+          border: none;
+          cursor: pointer;
+          background: none;
+        }
+
+        :host > header > .favorite > svg {
+          height: 24px;
+        }
+
+        #favorite-solid {
+          display: none;
+        }
+
+        :host > .content {
+          background: #fff;
+          color: #000;
+          padding: 10px 20px;
+        }
+
+        :host > .content dl {
+          display: grid;
+          grid-template-columns: 1fr 3fr;
+          column-gap: 10px;
+        }
+
+        :host > .content dl > dt {
+          font-weight: 500;
+        }
+
+        :host > footer {
+          background: var(--color-gray-100);
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
+          border-top: 1px solid var(--color-gray-300);
+        }
+
+        :host > footer > .stat {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: stretch;
+          margin: 10px 20px;
+          padding: 10px;
+        }
+
+        :host > footer > .stat > .bar {
+          width: 100%;
+          border-radius: 20px;
+          height: 8px;
+          background-color: var(--color-gray-300);
+        }
+
+        :host > footer > .stat > strong {
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: var(--color-gray-500);
+          margin: 10px 0;
+        }
+
+        :host > footer > .stat > .bar > .percent {
+          width: 0;
+          height: 100%;
+          border-radius: 20px;
+        }
+
+        :host > footer > .stat.green > .bar > .percent {
+          background-color: var(--color-green);
+        }
+
+        :host > footer > .stat.blue > .bar > .percent {
+          background-color: var(--color-blue);
+        }
+
+        :host > footer > .stat.black > .bar > .percent {
+          background-color: #000;
+        }
+      </style>
+      <header>
+        <h2>
+          <slot name="resort-name"></slot>
+        </h2>
+        <button id="favorite" class="favorite">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            id="favorite-outline"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            id="favorite-solid"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </header>
+      <div class="content">
+        <dl>
+          <dt>State</dt>
+          <dd>
+            <slot name="state"></slot>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Summit</dt>
+          <dd>
+            <slot name="summit"></slot>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Base</dt>
+          <dd>
+            <slot name="base"></slot>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Vertical</dt>
+          <dd>
+            <slot name="vertical"></slot>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Lifts</dt>
+          <dd>
+            <slot name="lifts"></slot>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Runs</dt>
+          <dd>
+            <slot name="runs"></slot>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Acres</dt>
+          <dd>
+            <slot name="acres"></slot>
+          </dd>
+        </dl>
+      </div>
+      <footer>
+        <div class="stat green">
+          <div class="bar">
+            <div class="percent"></div>
+          </div>
+          <strong>Green</strong>
+        </div>
+        <div class="stat blue">
+          <div class="bar">
+            <div class="percent"></div>
+          </div>
+          <strong>Blue</strong>
+        </div>
+        <div class="stat black">
+          <div class="bar">
+            <div class="percent"></div>
+          </div>
+          <strong>Black</strong>
+        </div>
+      </footer>
+    </template>
+
     <script type="module" src="/common.js"></script>
     <script type="module" src="/challenges/06-performance/main.js"></script>
   </body>

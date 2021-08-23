@@ -112,18 +112,6 @@ export class ResortCard extends HTMLElement {
     }
   }
 
-  private animatePercent(el: HTMLDivElement, percent: number, prev = 0): void {
-    if (prev >= percent) {
-      return;
-    }
-    prev++;
-    el.style.width = `${prev.toString()}%`;
-    requestAnimationFrame(() => {
-      el.style.width = `${prev.toString()}%`;
-      this.animatePercent(el, percent, prev);
-    });
-  }
-
   private setAcresPercent(color: string, percent: number): void {
     if (!this.shadowRoot || !percent) {
       return;
@@ -134,8 +122,28 @@ export class ResortCard extends HTMLElement {
     if (!percentEl) {
       return;
     }
-    this.animatePercent(percentEl, percent * 100);
-    // percentEl.style.width = `${(percent * 100).toString()}%`;
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.length === 0) {
+          return;
+        }
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          requestAnimationFrame(() => {
+            percentEl.style.width = `${(percent * 100).toString()}%`;
+          });
+        } else if (
+          percentEl.getBoundingClientRect().top <= window.innerHeight
+        ) {
+          percentEl.style.width = `${(percent * 100).toString()}%`;
+        }
+      },
+      {
+        root: null,
+        threshold: 1.0,
+      }
+    );
+    intersectionObserver.observe(percentEl);
   }
 
   private setSlotInnerText(name: string): void {

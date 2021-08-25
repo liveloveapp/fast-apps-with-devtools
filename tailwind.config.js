@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
-  purge: ['./challenges/**/*.{js,ts,html}'],
+  purge: ['./common.css', './challenges/**/*.{js,ts,html}'],
   theme: {
     colors: {
       ...defaultTheme.colors,

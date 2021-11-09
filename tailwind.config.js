@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  mode: 'jit',
+  // mode: 'jit', // Appears to cause infinite rebuild of common.css in some cases, re-enable for potential performance improvements
   purge: ['./common.css', './challenges/**/*.{js,ts,html}'],
   theme: {
     colors: {
